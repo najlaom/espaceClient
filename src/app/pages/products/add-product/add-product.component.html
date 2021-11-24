@@ -1,0 +1,81 @@
+<div class="content">
+    <div class="breadcrumb-wrapper">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-0">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <span class="mdi mdi-home"></span>
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    LVClub
+                </li>
+                <li class="breadcrumb-item" aria-current="page"><a routerLink="/dashboard">tableau de bord</a></li>
+            </ol>
+        </nav>
+
+    </div>
+    <div class="card card-default">
+        <div class="card-body py-4">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" data-toggle="tab"  routerLink="/products">Produits</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                        routerLinkActive="active">Ajouter Produit</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-default">
+                <div class="card-header card-header-border-bottom">
+                    <h2>Custom Styles</h2>
+                </div>
+                <div class="card-body">
+                    <form >
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="fname">First name</label>
+                                    <input type="text" class="form-control" placeholder="John">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="lname">Last name</label>
+                                    <input type="text" class="form-control" placeholder="Smith">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" placeholder="City Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="State">State</label>
+                                            <input type="text" class="form-control" placeholder="State">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="Zip">Zip</label>
+                                            <input type="text" class="form-control" placeholder="Zip">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-footer pt-5 border-top">
+                            <button type="submit" class="btn btn-primary btn-default">Submit form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
+
+

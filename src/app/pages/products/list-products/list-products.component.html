@@ -1,0 +1,84 @@
+<div class="content">
+    <div class="breadcrumb-wrapper">
+        <h1>Spinner</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-0">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <span class="mdi mdi-home"></span>
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    Categories
+                </li>
+                <li class="breadcrumb-item" aria-current="page">Liste des produits</li>
+            </ol>
+        </nav>
+
+    </div>
+    <div class="card card-default">
+        <div class="card-body py-4">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab">Produits</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/add-product"
+                        routerLinkActive="active">Ajouter Produit</a></li>
+            </ul>
+        </div>
+    </div>
+  
+    <div class="card card-table-border-none" id="recent-orders">
+        <div class="card-header justify-content-between card-header-border-bottom">
+            <h2>Produits</h2>
+            <div class="date-range-report ">
+                <span></span>
+            </div>
+        </div>
+        <div class="card-body pt-0 pb-5">
+            <table class="table card-table table-responsive table-responsive-large table-hover c_table" style="width:100%">
+                <thead>
+                    <tr>
+
+                        <th>Produits</th>
+                        <th class="d-none d-md-table-cell">Prix</th>
+                        <th class="d-none d-md-table-cell">Quantite</th>
+                        <th class="d-none d-md-table-cell">Image</th>
+                        <th>Categorie</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dataProduct of listProducts">
+                        <td>{{dataProduct.name}}</td>
+                        <td>
+                            <a class="text-dark" href=""> {{dataProduct.price}}</a>
+                        </td>
+                        <td class="d-none d-md-table-cell">{{dataProduct.quantity}}</td>
+                        <td class="d-none d-md-table-cell">{{dataProduct.productPicture}}</td>
+                        <td class="d-none d-md-table-cell">{{dataProduct.category.name}}</td>
+                        <td class="text-right">
+                            <div class="dropdown show d-inline-block widget-dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="" role="button"
+                                    id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" data-display="static"></a>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
+                                    <li class="dropdown-item">
+                                        <a href="#">Afficher</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="#">Modifier</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="#">Supprimer</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

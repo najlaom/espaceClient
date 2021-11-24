@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "espaceClient": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "espaceClient"
+    }
+  },
+  "defaultProject": "espaceClient",
+  "cli": {
+    "analytics": "f7a061d3-f51a-4c50-8b35-f18c3821a920"
+  }
 }
