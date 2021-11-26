@@ -10,6 +10,11 @@ import { AddCategoryComponent } from './pages/categories/add-category/add-catego
 import { ListCategoriesComponent } from './pages/categories/list-categories/list-categories.component';
 import { ListProductsComponent } from './pages/products/list-products/list-products.component';
 import { AddProductComponent } from './pages/products/add-product/add-product.component';
+import { EcommerceComponent } from './pages/dashboard/ecommerce/ecommerce.component';
+import { AddTableComponent } from './pages/tables/add-table/add-table.component';
+
+
+
 
 
 @NgModule({
@@ -19,7 +24,9 @@ import { AddProductComponent } from './pages/products/add-product/add-product.co
     AddCategoryComponent,
     ListCategoriesComponent,
     ListProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    EcommerceComponent,
+    AddTableComponent
   ],
   imports: [
     BrowserModule,

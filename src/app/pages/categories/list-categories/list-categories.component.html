@@ -45,7 +45,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let category of listCategories">
+                    <tr *ngFor="let category of CategoryList">
                         <td> <img src="{{category.categoryImage}}" style="width:100px;height:100px"></td>
                         <td>
                              {{category.name}}
@@ -71,7 +71,6 @@
                             </div>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
         </div>

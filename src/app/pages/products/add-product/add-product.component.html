@@ -18,9 +18,9 @@
     <div class="card card-default">
         <div class="card-body py-4">
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link" data-toggle="tab"  routerLink="/products">Produits</a></li>
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab"
-                        routerLinkActive="active">Ajouter Produit</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/products">Produits</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" routerLinkActive="active">Ajouter
+                        Produit</a></li>
             </ul>
         </div>
     </div>
@@ -28,54 +28,137 @@
         <div class="col-lg-12">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">
-                    <h2>Custom Styles</h2>
+                    <h2> Ajouter un nouveau produit </h2>
                 </div>
                 <div class="card-body">
-                    <form >
+                    <form (ngSubmit)="OnSubmit(name, slug, price, offer, quantity, image)">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="fname">First name</label>
-                                    <input type="text" class="form-control" placeholder="John">
+                                    <label for="fname">Produit</label>
+                                    <input type="text" class="form-control" placeholder="Produit"
+                                    #name ngModel name="name">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="lname">Last name</label>
-                                    <input type="text" class="form-control" placeholder="Smith">
+                                    <label for="lname">Slug</label>
+                                    <input type="text" class="form-control" placeholder="Slug"
+                                    #slug ngModel name="slug">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" class="form-control" placeholder="City Name">
+                                    <label>Categorie</label>
+                                    <select class="form-control show-tick" (change)="selectCategory($event)">
+                                        <option>
+                                            selectionnez une categorie
+                                        </option>
+                                        <option *ngFor="let cat of CategoryList" [value]="cat._id">
+                                            {{cat.name}}
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="city">Quantité</label>
+                                    <input type="text" class="form-control" placeholder="Quantité"
+                                    #quantity ngModel name="quantity">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="city">Prix</label>
+                                    <input type="text" class="form-control" placeholder="Prix"
+                                    #price ngModel name="price">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="city">Offre</label>
+                                    <input type="text" class="form-control" placeholder="Offre"
+                                    #offer ngModel name="offer">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <div class="form-group">
-                                            <label for="State">State</label>
-                                            <input type="text" class="form-control" placeholder="State">
+                                            <img [src]="imageUrl" style="width:150px;height:120px">
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-8">
                                         <div class="form-group">
-                                            <label for="Zip">Zip</label>
-                                            <input type="text" class="form-control" placeholder="Zip">
+                                            <label for="exampleFormControlFile1">Example file input</label>
+                                            <input class="form-control-file" type="file" #image accept="image/*"
+                                                (change)="handleFileInput($event.target.files)">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <label>Sous Produit</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Qté</label>
+                                    </div>
+                                    <div class="col-1">
+                                        <label></label>
+                                    </div>
+                                </div>
+                                <hr color="#4285F4">
+                            </div>
+                            <div class="col-sm-12 mb-3">
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <form [formGroup]="formSubProduct">
+                                            <div formArrayName='subproducts'>
+                                                <div *ngFor="let subProductGroup of SubProductFormGroups.controls; let iPrd = index;"
+                                                    [formGroupName]="iPrd">
+                                                    <div class="row clearfix">
+                                                        <div class="col-sm-6 mb-3">
+                                                            <input type="text"
+                                                                formControlName="name"
+                                                                class="form-control"
+                                                                placeholder="Name" />
+                                                        </div>
+                                                        <div class="col-sm-5 mb-3">
+                                                            <input type="text"
+                                                                formControlName="quantity"
+                                                                class="form-control"
+                                                                placeholder="Quantité" />
+                                                        </div>
+
+                                                        <div class="col-sm-1 mb-3 text-primary">
+                                                            <a (click)="deleteSubProductGroup(iPrd)"><i
+                                                                    class="mdi mdi-minus-circle">
+                                                                </i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 text-primary">
+                                                    <a class="float-right"
+                                                        (click)="addNewSubProductGroup()"><i
+                                                            class="mdi mdi-plus-circle"></i> Ajouter
+                                                        un produit</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <div class="form-footer pt-5 border-top">
-                            <button type="submit" class="btn btn-primary btn-default">Submit form</button>
+                            <button type="submit" class="btn btn-primary btn-default float-right float-right">Ajouter</button>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>       
+        </div>
     </div>
 </div>
-
-

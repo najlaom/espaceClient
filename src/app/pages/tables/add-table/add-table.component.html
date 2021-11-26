@@ -1,0 +1,96 @@
+<div class="content">
+    <div class="breadcrumb-wrapper">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-0">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <span class="mdi mdi-home"></span>
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    LVClub
+                </li>
+                <li class="breadcrumb-item" aria-current="page"><a routerLink="/dashboard">tableau de bord</a></li>
+            </ol>
+        </nav>
+
+    </div>
+    <div class="card card-default">
+        <div class="card-body py-4">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/tables">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" routerLinkActive="active">Ajouter
+                        Table</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-header card-header-border-bottom">
+                    <h2>Ajouter Table</h2>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="addTable()">
+                        <div class="form-row"></div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Numero de table</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Numero table" [(ngModel)]="table.num_table" name="num_table">
+                            <span class="mt-2 d-block">We'll never share your email with anyone else.</span>
+                        </div>
+                        <div class="form-footer pt-4 pt-5 mt-4 border-top">
+                            <button type="submit" class="btn btn-primary btn-default">Submit</button>
+                            <button type="submit" class="btn btn-secondary btn-default">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card card-default">
+              <div class="card-header justify-content-between mb-4">
+                <h2>Top Products</h2>
+                <div>
+                  <button class="text-black-50 mr-2 font-size-20"><i class="mdi mdi-cached"></i></button>
+                  <div class="dropdown show d-inline-block widget-dropdown">
+                    <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdown-product"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-product">
+                      <li class="dropdown-item"><a href="#">Update Data</a></li>
+                      <li class="dropdown-item"><a href="#">Detailed Log</a></li>
+                      <li class="dropdown-item"><a href="#">Statistics</a></li>
+                      <li class="dropdown-item"><a href="#">Clear Data</a></li>
+                    </ul>
+                  </div>
+                </div>
+      
+              </div>
+              <div class="card-body py-0">
+                <div class="media d-flex mb-5" *ngFor="let table of listTable">
+                    <div class="media-image align-self-center mr-3 rounded">
+                       
+                           
+                      </div>
+                  <div class="media-body align-self-center">
+                    <a href="#">s
+                      <h6 class="mb-3 text-dark font-weight-medium">{{table.num_table}}</h6>
+                    </a>
+                    <p class="float-md-right"><span class="text-dark mr-2">20</span>Sales</p>
+                    <p class="d-none d-md-block">Statement belting with double-turnlock hardware adds “swagger” to a simple.
+                    </p>
+                    <p class="mb-0">
+                      <del>$300</del>
+                      <span class="text-dark ml-3">$250</span>
+                    </p>
+                  </div>
+                </div>
+      
+               
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

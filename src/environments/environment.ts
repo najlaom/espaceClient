@@ -5,11 +5,14 @@ const apiUrl = "http://localhost:3000/"
 export const environment = {
   production: false,
 
-  apiInitDataCategories: apiUrl+"api/initialData",
-  apiProducts: apiUrl+"api/product/getProducts",
-  apiCategories: apiUrl+"api/category/getCategories",
+  apiInitDataCategories: apiUrl+ "api/initialData",
+  apiProducts: apiUrl+ "api/product/getProducts",
+  apiCategories: apiUrl+ "api/category/getCategories",
   apiAddCategory: apiUrl + "api/category/create",
-  apiAddProduct: apiUrl+ "api/product/addProduct"
+  apiAddProduct: apiUrl+ "api/product/addProduct",
+  apiAddTable: apiUrl+ "api/admin/table/addTable",
+  apiGetTables: apiUrl+ "api/table/getTables",
+ 
 };
 
 /*

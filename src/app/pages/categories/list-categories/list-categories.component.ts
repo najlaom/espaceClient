@@ -8,7 +8,7 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
 })
 export class ListCategoriesComponent implements OnInit {
 
-  listCategories: any = [];
+  CategoryList: any = [];
 
   constructor(private _apiService: CategoriesService) { }
 
@@ -20,7 +20,7 @@ export class ListCategoriesComponent implements OnInit {
 
     this._apiService.getCategories().then(
       (data) => {
-        this.listCategories = data;
+        this.CategoryList = data;
         console.log("datacccccccccc")
         console.log(data)
 
